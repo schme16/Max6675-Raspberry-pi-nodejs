@@ -11,7 +11,7 @@ module.exports = class Max6675 {
 	 * @param {number} cs Chip select,BCM GPIO
 	 * @param {number} sck CMOS clock,BCM GPIO
 	 * @param {number | number[]} so Serial data output,BCM GPIO
-	 * @param {number} untit default 1,1:"°C",2:"°F".
+	 * @param {number} unit default 1,1:"°C",2:"°F".
 	 */
 	constructor(cs, sck, so, unit = 1) {
 		this.cs = cs;
