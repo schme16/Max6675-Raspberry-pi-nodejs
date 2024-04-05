@@ -29,18 +29,36 @@ module.exports = class Max6675 {
 
 	stop() {
 		if (this.cs) {
-			this.cs.writeSync(0);
-			this.cs.unexport();
+			try {
+				this.cs.writeSync(0);
+				this.cs.unexport();
+			}
+			catch(e) {
+				console.trace(e)
+			}
 		}
 		if (this.sck) {
-			this.sck.writeSync(0);
-			this.sck.unexport();
+			try {
+				this.sck.writeSync(0);
+				this.sck.unexport();
+			}
+			catch(e) {
+				console.trace(e)
+			}
+			
 		}
 		if (this.so)
+			
+		try {
 			this.so.map(item => {
 				item.writeSync(0);
 				item.unexport();
 			});
+		}
+		catch(e) {
+			console.trace(e)
+		}
+			
 		process.exit();
 	}
 
